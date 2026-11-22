@@ -7,6 +7,11 @@ this package adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+- Isolate replacement refresh failures per agent, remove cached state and withdraw shadows when Cordis disposal is observed, and warn with the mode, agent and safely formatted error while allowing live agents to recover on later refreshes (#953).
+- 替换刷新错误按 agent 隔离，发现 Cordis 已销毁时删除缓存状态并撤销 shadow，警告包含模式、agent 与安全格式化的错误，存活 agent 可在后续刷新时恢复（#953）。
+- Cancel shared publication for disposed or unloading fibers with tracked rejected readiness; preserve synchronous ordinary errors and legal loading-time registration. Roll back failed queue lifetime setup, retain fallback queues across live callers, and drain owed withdrawals even after the last owner stops (#953).
+- 公共发布对已销毁或卸载中的 fiber 返回可追踪的拒绝就绪状态，保留普通错误同步传播和合法加载期注册。队列生命周期安装失败时回滚缓存，fallback 队列由存活调用方共同持有，最后一个 owner 退出后仍完成已欠撤销（#953）。
+
 ## [0.5.6] — 2026-11-21 — Patch release
 
 - ops-ptc's batching teacher trajectory now teaches sandbox authority: the lesson states the
